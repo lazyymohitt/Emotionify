@@ -69,15 +69,15 @@ async function loginUser(req,res){
     })
 
     if(!user){
-       return  res.status(404).json({
-            message:"User Not Found"
+       return  res.status(400).json({
+            message:"Invalid Credentials"
         })
     }
 
     const isPasswordCorrect = await bcrypt.compare(password, user.password)
 
     if(!isPasswordCorrect){
-        return  res.status(401).json({
+        return  res.status(400).json({
             message:"Invalid Credentials"
         })
     }
@@ -101,7 +101,19 @@ async function loginUser(req,res){
     })
 
 }
+
+
+async function getMe(req, res) {
+    const user = await userModel.findById(req.user.id)
+
+    res.status(200).json({
+        message: "User fetched successfully",
+        user
+    })
+}
+
+
 module.exports={
     registerUser,
-    loginUser
+    loginUser,getMe
 }
