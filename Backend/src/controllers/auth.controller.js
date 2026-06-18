@@ -66,7 +66,7 @@ async function loginUser(req,res){
             {email},
             {username}
         ]
-    })
+    }).select("+password")
 
     if(!user){
        return  res.status(400).json({
