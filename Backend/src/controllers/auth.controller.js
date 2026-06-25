@@ -3,6 +3,7 @@ const bcrypt  = require("bcryptjs")
 
 const userModel = require("../models/user.model");
 const blacklistModel = require("../models/blacklist.model");
+const redis = require("../config/cache");
 
 
 async function registerUser(req,res) {
@@ -120,9 +121,10 @@ async function logoutUser(req,res){
     res.clearCookie("token")
 
 
-    await blacklistModel.create({
-        token
-    })
+    // await blacklistModel.create({
+    //     token
+    // })
+    await redis.set(token,Date.now().toString(),"EX" ,60*60)
 
 
     res.status(201).json({

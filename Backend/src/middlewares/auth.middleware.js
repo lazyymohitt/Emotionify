@@ -10,6 +10,14 @@ async function authUser(req, res, next) {
         });
     }
 
+    const isTokenBlacklisted = await redis.get(token)
+
+    if (isTokenBlacklisted) {
+        return res.status(401).json({
+            message: "Invalid token"
+        })
+    }
+
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
