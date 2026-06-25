@@ -30,6 +30,16 @@ export const init = async ({ landmarkerRef, videoRef, streamRef }) => {
 export const detect = ({ landmarkerRef, videoRef, setExpression }) => {
     if (!landmarkerRef.current || !videoRef.current) return;
 
+    if (
+        videoRef.current.readyState < 2 || 
+        videoRef.current.videoWidth === 0 || 
+        videoRef.current.videoHeight === 0
+    ) {
+        console.warn("Video is not ready or has 0 dimensions.");
+        setExpression("Camera is not ready...");
+        return;
+    }
+
     const results = landmarkerRef.current.detectForVideo(
         videoRef.current,
         performance.now()
