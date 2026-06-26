@@ -1,0 +1,183 @@
+
+
+.login {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background: #0f172a;
+}
+
+/* Background Blobs */
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.5;
+}
+
+.one {
+    width: 320px;
+    height: 320px;
+
+    background: #ef4444;
+
+    top: -100px;
+    left: -100px;
+}
+
+.two {
+    width: 280px;
+    height: 280px;
+
+    background: #2563eb;
+
+    right: -80px;
+    bottom: -80px;
+}
+
+/* Glass Card */
+
+.glass {
+    width: 420px;
+
+    padding: 40px;
+
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+
+    animation: fade .8s ease;
+}
+
+.glass h1 {
+    color: white;
+    font-size: 34px;
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+.glass p {
+    color: #cbd5e1;
+    margin-bottom: 30px;
+}
+
+/* ========================= */
+/* Form Group */
+/* ========================= */
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+.form-input label {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.form-input input {
+    width: 100%;
+    height: 55px;
+
+    padding: 0 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: white;
+    font-size: 15px;
+
+    transition: .3s ease;
+}
+
+.form-input input::placeholder {
+    color: #94a3b8;
+}
+
+.form-input input:focus {
+    border-color: #ef4444;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    box-shadow: 0 0 15px rgba(239, 68, 68, .25);
+}
+
+/* Bottom Link */
+
+.bottomText {
+    margin-top: 22px;
+    text-align: center;
+}
+
+.bottomText p {
+    color: #d1d5db;
+    font-size: 14px;
+}
+
+.bottomText a {
+    color: #ef4444;
+    text-decoration: none;
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.bottomText a:hover {
+    color: #f87171;
+}
+
+/* Animation */
+
+@keyframes fade {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* Responsive */
+
+@media (max-width: 500px) {
+
+    .glass {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .glass h1 {
+        font-size: 28px;
+    }
+
+}

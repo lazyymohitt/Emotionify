@@ -1,12 +1,13 @@
-import { useState } from 'react'
-import FaceDetector from './Features/Expression/components/FaceExpression'
+import router from "./app.routes"
+import {RouterProvider} from 'react-router-dom'
+
+import "./Features/shared/styles/global.scss"
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-     <FaceDetector/>
+    <RouterProvider router={router}/>
     </>
   )
 }
