@@ -42,4 +42,9 @@ export const useAuth = () => {
 
     setLoading(false)
   }
+
+
+  return({
+    user,loading,handleGetMe,handleLogOut,handleRegister,handleLogin
+  })
 };

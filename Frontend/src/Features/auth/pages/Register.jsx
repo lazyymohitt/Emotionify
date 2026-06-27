@@ -1,34 +1,35 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../style/login.scss"
 import FormGroup from "../components/Formgroup";
+import { useAuth } from "../hooks/useAuth";
 
 
 const Register = () => {
-    const [formData, setFormData] = useState({
-        username: "",
-        email: "",
-        password: "",
-    });
 
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name.toLowerCase()]: e.target.value,
-        });
-    };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
-        console.log(formData);
-    };
+    const {loading , handleRegister} = useAuth()
+
+    const navigate  = useNavigate()
+
+    async function  handleSubmit(e) {
+
+        e.preventDefault()
+
+        await handleRegister({username,email,password})
+
+        navigate("/login")
+        
+    }
+
+  
 
     return (
         <section className="login">
-
-            <div className="circle one"></div>
-            <div className="circle two"></div>
 
             <div className="glass">
 

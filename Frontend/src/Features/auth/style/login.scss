@@ -1,5 +1,4 @@
 
-
 .login {
     width: 100%;
     min-height: 100vh;
@@ -14,36 +13,7 @@
     background: #0f172a;
 }
 
-/* Background Blobs */
 
-.circle {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(90px);
-    opacity: 0.5;
-}
-
-.one {
-    width: 320px;
-    height: 320px;
-
-    background: #ef4444;
-
-    top: -100px;
-    left: -100px;
-}
-
-.two {
-    width: 280px;
-    height: 280px;
-
-    background: #2563eb;
-
-    right: -80px;
-    bottom: -80px;
-}
-
-/* Glass Card */
 
 .glass {
     width: 420px;
