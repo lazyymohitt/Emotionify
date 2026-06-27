@@ -1,6 +1,6 @@
 import { login, register, logout, getMe } from "../services/auth.api";
 
-import { use, useContext } from "react";
+import { use, useContext, useEffect } from "react";
 
 import { AuthContext } from "../auth.context";
 
@@ -9,19 +9,19 @@ export const useAuth = () => {
 
   const { user, setUser, loading, setLoading } = context;
 
-  async function handleRegister(username, email, password) {
+  async function handleRegister(userData) {
     setLoading(true);
 
-    const data = await register(username, email, password);
+    const data = await register(userData);
     setUser(data.user);
 
     setLoading(false);
   }
 
-  async function handleLogin(username, email, password) {
+  async function handleLogin(userData) {
     setLoading(true);
 
-    const data = await login(username, email, password);
+    const data = await login(userData);
     setUser(data.user);
 
     setLoading(false);
@@ -37,12 +37,18 @@ export const useAuth = () => {
 
 
   async function handleLogOut() {
-    setLoading(True)
+    setLoading(true)
     const data  = await logout()
 
     setLoading(false)
   }
 
+
+  // now whenEver we Goin ot repload the Page It logOut teh use So that here using UseEffect I m Hydrating the User
+
+  useEffect(()=>{
+    handleGetMe()
+  },[])
 
   return({
     user,loading,handleGetMe,handleLogOut,handleRegister,handleLogin

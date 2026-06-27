@@ -42,22 +42,22 @@ const Register = () => {
                     <FormGroup
                         label="Username"
                         placeholder="Enter your username"
-                        value={formData.username}
-                        onChange={handleChange}
+                        value={username}
+                        onChange={(e)=> setUsername(e.target.value)}
                     />
 
                     <FormGroup
                         label="Email"
                         placeholder="Enter your email"
-                        value={formData.email}
-                        onChange={handleChange}
+                        value={email}
+                        onChange={(e)=> setEmail(e.target.value)}
                     />
 
                     <FormGroup
                         label="Password"
                         placeholder="Enter your password"
-                        value={formData.password}
-                        onChange={handleChange}
+                        value={password}
+                        onChange={(e)=>setPassword(e.target.value)}
                     />
 
                     <button className="btn-red" type="submit">
