@@ -20,10 +20,26 @@ export const useAuth = () => {
 
   async function handleLogin(username, email, password) {
     setLoading(true);
-    
+
     const data = await login(username, email, password);
     setUser(data.user);
 
     setLoading(false);
+  }
+
+  async function handleGetMe() {
+    setLoading(true);
+    const data = await getMe();
+    setUser(data.user);
+
+    setLoading(false);
+  }
+
+
+  async function handleLogOut() {
+    setLoading(True)
+    const data  = await logout()
+
+    setLoading(false)
   }
 };
