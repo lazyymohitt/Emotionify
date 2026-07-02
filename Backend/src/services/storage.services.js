@@ -1,22 +1,19 @@
-const songModel = require("../models/song.model")
-
 const ImageKit  = require("@imagekit/nodejs")
-
 
 const client  = new ImageKit ({
     privateKey: process.env.IMAGEKIT_PVT_KEY
 })
 
+async function uploadFile({ buffer, filename, folder = "" }) {
 
-async function uploadFile({buffer , filename , folder = ""}) {
+    const file = await client.files.upload({
+        file: await ImageKit.toFile(Buffer.from(buffer)),
+        fileName: filename,
+        folder
+    })
 
-     file:await ImageKit.toFile(Buffer.from(buffer))
+    return file
 
-
-     filename:filename
-
-
-     folder
 }
 
-module.exports = {uploadFile}
+module.exports = { uploadFile }
