@@ -2,7 +2,7 @@ import { login, register, logout, getMe } from "../services/auth.api";
 
 import { use, useContext, useEffect } from "react";
 
-import { AuthContext } from "../auth.context";
+import { AuthContext } from "../../../context/AuthContext";
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -27,13 +27,42 @@ export const useAuth = () => {
     setLoading(false);
   }
 
-  async function handleGetMe() {
-    setLoading(true);
-    const data = await getMe();
-    setUser(data.user);
+//  async function handleGetMe() {
 
-    setLoading(false);
-  }
+//     console.log("GetMe Called");
+
+//     setLoading(true);
+
+//     const data = await getMe();
+
+//     console.log(data);
+
+//     setUser(data.user);
+
+//     setLoading(false);
+// }
+
+async function handleGetMe() {
+
+   setLoading(true);
+
+   try {
+        const data = await getMe
+//         setUser(data.user);
+    }
+    catch (error) {
+    if (error.response?.status === 401) {
+        setUser(null);
+    } else {
+        console.error(error);
+    }
+}
+
+   finally{
+         setLoading(false);
+
+    }
+ }
 
 
   async function handleLogOut() {

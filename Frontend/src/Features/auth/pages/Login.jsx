@@ -1,4 +1,4 @@
-import "../style/login.scss";
+import "../styles/login.scss";
 import React, { useState } from "react";
 import { Link, useNavigate} from "react-router-dom";
 import FormGroup from "../components/Formgroup";
