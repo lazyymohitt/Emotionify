@@ -1,0 +1,42 @@
+.song-card {
+  background: #111827;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #1f2937;
+}
+
+.song-card:hover {
+  transform: translateY(-6px);
+  border-color: #2563eb;
+}
+
+.song-card__image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.song-card__content {
+  padding: 1rem;
+}
+
+.song-card__content h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.song-card__content p {
+  color: #94a3b8;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.song-card__badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #2563eb;
+  font-size: 12px;
+}

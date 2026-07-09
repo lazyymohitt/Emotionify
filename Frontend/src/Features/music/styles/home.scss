@@ -1,0 +1,81 @@
+.home {
+  flex: 1;
+  background: #020617;
+  color: #ffffff;
+  padding: 2rem;
+  overflow-y: auto;
+  min-height: calc(100vh - 80px);
+}
+
+.home__hero {
+  margin-bottom: 2rem;
+}
+
+.home__welcome h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.home__welcome p {
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+.home__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 2rem 0;
+}
+
+.card {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 18px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #2563eb;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.card p {
+  color: #94a3b8;
+}
+
+.home__section {
+  margin-top: 3rem;
+}
+
+.home__section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.songs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.song-card {
+  height: 220px;
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 18px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.song-card:hover {
+  transform: translateY(-6px);
+  border-color: #2563eb;
+}
