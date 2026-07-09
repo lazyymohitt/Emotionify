@@ -1,1 +1,72 @@
+.navbar {
+  height: 80px;
+  width: 100%;
+  background: #111827;
 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 2rem;
+
+  border-bottom: 1px solid #1f2937;
+}
+
+.navbar__left {
+  flex: 1;
+}
+.navbar__search {
+  width: 350px;
+  height: 45px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 12px;
+
+  background: #1f2937;
+  color: white;
+
+  padding: 0 16px;
+
+  font-size: 15px;
+}
+
+.navbar__search::placeholder {
+  color: #94a3b8;
+}
+
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.navbar__weather,
+.navbar__user {
+  color: white;
+  font-size: 15px;
+}
+
+
+.navbar__theme {
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  background: #1f2937;
+  color: white;
+
+  font-size: 18px;
+
+  transition: 0.3s;
+}
+
+.navbar__theme:hover {
+  background: #374151;
+}
