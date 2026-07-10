@@ -40,9 +40,9 @@ async function getSong(req,res) {
 
     const {mood}  = req.query 
 
-    const song  =await songModel.findOne({
-        mood
-    })
+   const song = await songModel.find({
+    mood
+   });
 
 
     res.status(200).json({
