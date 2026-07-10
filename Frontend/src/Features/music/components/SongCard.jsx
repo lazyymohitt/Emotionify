@@ -1,8 +1,18 @@
-import "../styles/songCard.scss";
+import { usePlayer } from "../../../context/PlayerContext";
+import "../styles/songcard.scss";
+
+
 
 const SongCard = ({ song }) => {
+
+  const { playSong } = usePlayer();
+
   return (
-    <div className="song-card">
+
+    <div
+      className="song-card"
+      onClick={() => playSong(song)}
+    >
 
       <img
         src={song.cover}
@@ -23,6 +33,7 @@ const SongCard = ({ song }) => {
       </div>
 
     </div>
+
   );
 };
 

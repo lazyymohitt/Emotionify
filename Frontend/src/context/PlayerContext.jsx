@@ -14,20 +14,29 @@ export const PlayerProvider  = ({children})=>{
     const [isPlaying, setIsPlaying] = useState(false)
 
 
-    const playSong = (song) =>{
-         if(!song) return; 
+const playSong = async (song) => {
+  if (!song) return;
 
+  try {
+    // Agar naya song hai
+    if (!currentSong || currentSong.id !== song.id) {
+      audioRef.current.pause();
 
-         if(currentSong === null || currentSong.id !== song.id) {
-            audioRef.current.src = song.audio;
-            setCurrentSong(song)
-         }
+      audioRef.current.src = song.audio;
 
-         audioRef.current.play();
-         setIsPlaying(true); 
+      audioRef.current.load(); // ⭐ Important
 
-
+      setCurrentSong(song);
     }
+
+    await audioRef.current.play();
+
+    setIsPlaying(true);
+
+  } catch (error) {
+    console.error("Audio Error :", error);
+  }
+};
 
     const pauseSong = () =>{
         audioRef.current.pause()

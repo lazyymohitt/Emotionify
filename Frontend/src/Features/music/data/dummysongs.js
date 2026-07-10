@@ -6,6 +6,7 @@ const dummySongs = [
     artist: "The Weeknd",
     mood: "Happy",
     cover: "https://picsum.photos/300?random=1",
+    audio:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
   },
   {
     id: 2,
@@ -13,6 +14,7 @@ const dummySongs = [
     artist: "One Direction",
     mood: "Calm",
     cover: "https://picsum.photos/300?random=2",
+    audio:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
   },
   {
     id: 3,
@@ -20,6 +22,7 @@ const dummySongs = [
     artist: "Imagine Dragons",
     mood: "Energetic",
     cover: "https://picsum.photos/300?random=3",
+    audio:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
   },
   {
     id: 4,
@@ -27,6 +30,7 @@ const dummySongs = [
     artist: "Ed Sheeran",
     mood: "Romantic",
     cover: "https://picsum.photos/300?random=4",
+    audio:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
   },
 ];
 

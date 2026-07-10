@@ -3,6 +3,7 @@ import "./mainlayout.scss"
 import { Outlet } from 'react-router-dom'
 import Navbar from "../components/Navbar/Navbar"
  import Sidebar from '../components/Sidebar/Sidebar'
+import Player from '../features/music/Player/Player'
 const MainLayout = () => {
   return (
     <div className='layout'
@@ -12,6 +13,8 @@ const MainLayout = () => {
       <main>
     <Navbar/>
       <Outlet/>
+
+      <Player/>
 
       </main>
     </div>
