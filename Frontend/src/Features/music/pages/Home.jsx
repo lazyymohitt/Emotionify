@@ -6,12 +6,47 @@ import "../styles/home.scss";
 const Home = () => {
   return (
     <section className="home">
-      <div className="home__hero">
-        <div className="home__welcome">
-          <h1>Good Evening, Mohit 👋</h1>
-          <p>Ready to discover music that matches your mood?</p>
-        </div>
-      </div>
+     <div className="home__hero">
+
+  <div className="home__hero-left">
+
+    <span className="hero-tag">
+      🎵 Moodify AI
+    </span>
+
+    <h1>
+      Good Evening,
+      <span> Mohit 👋</span>
+    </h1>
+
+    <p>
+      Discover songs, playlists and lyrics based on your
+      mood and current weather.
+    </p>
+
+    <button className="hero-btn">
+      Detect Mood
+    </button>
+
+  </div>
+
+  <div className="home__hero-right">
+
+    <div className="hero-card">
+
+      <h3>Current Mood</h3>
+
+      <h2>😊 Neutral</h2>
+
+      <p>
+        Camera not started yet.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
 
       <div className="home__cards">
         <div className="card">

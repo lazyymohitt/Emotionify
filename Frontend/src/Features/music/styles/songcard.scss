@@ -1,20 +1,29 @@
 .song-card {
   background: #111827;
-  border-radius: 18px;
+
+  border-radius: 20px;
+
   overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s ease;
+
   border: 1px solid #1f2937;
+
+  transition: .35s;
+
+  cursor: pointer;
 }
 
 .song-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
+
   border-color: #2563eb;
+
+  box-shadow: 0 18px 35px rgba(0,0,0,.35);
 }
 
 .song-card__image {
   width: 100%;
-  height: 220px;
+  height: 230px;
+
   object-fit: cover;
 }
 
@@ -23,20 +32,31 @@
 }
 
 .song-card__content h3 {
-  font-size: 1rem;
-  margin-bottom: 6px;
+  font-size: 1.1rem;
+
+  margin-bottom: .4rem;
 }
 
 .song-card__content p {
   color: #94a3b8;
-  font-size: 14px;
-  margin-bottom: 10px;
+
+  margin-bottom: 1rem;
 }
 
-.song-card__badge {
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 20px;
+.song-card__mood {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 7px 14px;
+
   background: #2563eb;
-  font-size: 12px;
+
+  border-radius: 999px;
+
+  font-size: .75rem;
+
+  font-weight: 600;
 }
