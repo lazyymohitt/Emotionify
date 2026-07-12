@@ -15,16 +15,16 @@ const SongCard = ({ song }) => {
     >
 
       <img
-        src={song.cover}
-        alt={song.title}
+        src={song.image}
+        alt={song.name}
         className="song-card__image"
       />
 
       <div className="song-card__content">
 
-        <h3>{song.title}</h3>
+        <h3>{song.name}</h3>
 
-        <p>{song.artist}</p>
+        <p>{song.artist_name}</p>
 
         <span className="song-card__mood">
           {song.mood}

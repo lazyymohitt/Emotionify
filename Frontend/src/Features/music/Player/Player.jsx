@@ -10,12 +10,12 @@ const Player = () => {
   return (
     <footer className="player">
       <div className="player__left">
-        <img src={currentSong.cover} alt={currentSong.title} />
+        <img src={currentSong.image} alt={currentSong.name} />
 
         <div>
-          <h3>{currentSong.title}</h3>
+          <h3>{currentSong.name}</h3>
 
-          <p>{currentSong.artist}</p>
+          <p>{currentSong.artist_name}</p>
         </div>
       </div>
 

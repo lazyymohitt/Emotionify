@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect , useState } from "react";
 import { getSongs } from "../services/music.api";
 
 const useMusic = (mood = 'happy')=>{
