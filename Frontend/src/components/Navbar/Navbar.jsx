@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "./navbar.scss";
+import { useSearch } from "../../context/SearchContext";
 
 const Navbar = () => {
 
-  const [query, setQuery] = useState("");
+  const { query, setQuery } = useSearch();
 
   return (
     <header className="navbar">

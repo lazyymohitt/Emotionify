@@ -1,11 +1,14 @@
-
+import { useSearch } from "../../../context/SearchContext";
+import { searchSong } from "../services/music.api";
 
 import { useEffect, useState } from "react";
-import { getSongs, searchSongs } from "../services/music.api";
+import { getSongs} from "../services/music.api";
 
 const useMusic = (mood = "happy") => {
   const [songs, setSongs] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const { query } = useSearch();
 
   const fetchSongs = async () => {
     try {
@@ -25,7 +28,8 @@ const useMusic = (mood = "happy") => {
         return;
       }
 
-      const data = await searchSongs(query);
+      const data = await searchSong(query);
+      console.log(data)
       setSongs(data.songs);
     } catch (error) {
       console.log(error);
@@ -33,8 +37,12 @@ const useMusic = (mood = "happy") => {
   };
 
   useEffect(() => {
+  if (query.trim()) {
+    handleSearch(query);
+  } else {
     fetchSongs();
-  }, [mood]);
+  }
+}, [query, mood]);
 
   return {
     songs,
