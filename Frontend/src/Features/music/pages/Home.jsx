@@ -1,10 +1,18 @@
 import SongCard from "../components/SongCard";
-import dummySongs from "../data/dummysongs";
 import "../styles/home.scss";
+import  useMusic from "../../music/hooks/useMusic"
 
 
 const Home = () => {
+  const {songs ,loading} = useMusic("happy")
+
+  if (loading){
+      return <h2>Loadng Songs</h2>
+    }
+
   return (
+
+    
     <section className="home">
      <div className="home__hero">
 
@@ -64,7 +72,7 @@ const Home = () => {
         <h2>Recommended Songs</h2>
 
         <div className="songs">
-          {dummySongs.map((song) => (
+          {songs.map((song) => (
             <SongCard key={song.id} song={song} />
           ))}
         </div>
@@ -74,7 +82,7 @@ const Home = () => {
         <h2>Your Playlists</h2>
 
         <div className="songs">
-          {dummySongs.map((song) => (
+          {songs.map((song) => (
             <SongCard key={song.id} song={song} />
           ))}
         </div>
