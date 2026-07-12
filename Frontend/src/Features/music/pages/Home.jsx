@@ -73,8 +73,12 @@ const Home = () => {
 
         <div className="songs">
           {songs.map((song) => (
-            <SongCard key={song.id} song={song} />
-          ))}
+  <SongCard
+    key={song.id}
+    song={song}
+    playlist={songs}
+  />
+))}
         </div>
       </section>
 
@@ -83,8 +87,12 @@ const Home = () => {
 
         <div className="songs">
           {songs.map((song) => (
-            <SongCard key={song.id} song={song} />
-          ))}
+  <SongCard
+    key={song.id}
+    song={song}
+    playlist={songs}
+  />
+))}
         </div>
       </section>
     </section>

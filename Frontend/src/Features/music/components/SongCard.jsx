@@ -1,19 +1,15 @@
 import { usePlayer } from "../../../context/PlayerContext";
 import "../styles/songcard.scss";
 
-
-
-const SongCard = ({ song }) => {
+const SongCard = ({ song, playlist }) => {
 
   const { playSong } = usePlayer();
 
   return (
-
     <div
       className="song-card"
-      onClick={() => playSong(song)}
+      onClick={() => playSong(song, playlist)}
     >
-
       <img
         src={song.image}
         alt={song.name}
@@ -21,19 +17,10 @@ const SongCard = ({ song }) => {
       />
 
       <div className="song-card__content">
-
         <h3>{song.name}</h3>
-
         <p>{song.artist_name}</p>
-
-        <span className="song-card__mood">
-          {song.mood}
-        </span>
-
       </div>
-
     </div>
-
   );
 };
 

@@ -1,12 +1,27 @@
 .layout {
   display: flex;
+
   height: 100vh;
-  background: #020617;
+
+  background: #0f172a;
+
+  overflow: hidden;
 }
 
-.layout main {
+.layout__main {
   flex: 1;
+
   display: flex;
+
   flex-direction: column;
-  overflow: hidden;
+
+  overflow-y: auto;
+
+  background: #020617;
+
+  padding-bottom: 0;
+}
+
+.layout__main.player-open {
+  padding-bottom: 90px;
 }

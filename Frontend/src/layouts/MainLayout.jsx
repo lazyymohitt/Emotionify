@@ -1,24 +1,35 @@
-import React from 'react'
-import "./mainlayout.scss"
-import { Outlet } from 'react-router-dom'
-import Navbar from "../components/Navbar/Navbar"
- import Sidebar from '../components/Sidebar/Sidebar'
-import Player from '../features/music/Player/Player'
+import "./mainlayout.scss";
+import { Outlet } from "react-router-dom";
+
+import Navbar from "../components/Navbar/Navbar";
+import Sidebar from "../components/Sidebar/Sidebar";
+import Player from "../features/music/Player/Player";
+
+import { usePlayer } from "../context/PlayerContext";
+
 const MainLayout = () => {
+
+  const { currentSong } = usePlayer();
+
   return (
-    <div className='layout'
-    >
-    <Sidebar/>
+    <div className="layout">
 
-      <main>
-    <Navbar/>
-      <Outlet/>
+      <Sidebar />
 
-      <Player/>
+      <main
+        className={`layout__main ${
+          currentSong ? "player-open" : ""
+        }`}
+      >
+        <Navbar />
 
+        <Outlet />
       </main>
-    </div>
-  )
-}
 
-export default MainLayout
+      <Player />
+
+    </div>
+  );
+};
+
+export default MainLayout;
