@@ -1,12 +1,12 @@
 import "./player.scss";
-
+import QueuePanel from "./QueuePanel";
 import {
   FaPlay,
   FaPause,
   FaForward,
   FaBackward,
   FaVolumeUp,
-  FaHeart,
+  FaHeart,FaListUl
 } from "react-icons/fa";
 
 import { usePlayer } from "../../../context/PlayerContext";

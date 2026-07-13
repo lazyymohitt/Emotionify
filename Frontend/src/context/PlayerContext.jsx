@@ -12,8 +12,12 @@ export const PlayerProvider = ({ children }) => {
   const audioRef = useRef(new Audio());
 
   const [playlist, setPlaylist] = useState([]);
+  const [queue, setQueue] = useState([]);
+
   const [currentSong, setCurrentSong] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
+
+  const [showQueue, setShowQueue] = useState(false);
 
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -28,14 +32,19 @@ export const PlayerProvider = ({ children }) => {
     if (!song) return;
 
     try {
+      // Initialize playlist & queue
       if (songs.length > 0) {
         setPlaylist(songs);
+        setQueue(songs);
 
-        const index = songs.findIndex((item) => item.id === song.id);
+        const index = songs.findIndex(
+          (item) => item.id === song.id
+        );
 
         setCurrentIndex(index);
       }
 
+      // Change source only if different song
       if (!currentSong || currentSong.id !== song.id) {
         audioRef.current.pause();
 
@@ -65,31 +74,51 @@ export const PlayerProvider = ({ children }) => {
   };
 
   // ==========================
-  // Next Song
+  // Next
   // ==========================
 
   const nextSong = () => {
-    if (playlist.length === 0) return;
+    if (queue.length === 0) return;
 
     const nextIndex = currentIndex + 1;
 
-    if (nextIndex >= playlist.length) return;
+    if (nextIndex >= queue.length) return;
 
-    playSong(playlist[nextIndex], playlist);
+    playSong(queue[nextIndex], queue);
   };
 
   // ==========================
-  // Previous Song
+  // Previous
   // ==========================
 
   const previousSong = () => {
-    if (playlist.length === 0) return;
+    if (queue.length === 0) return;
 
     const prevIndex = currentIndex - 1;
 
     if (prevIndex < 0) return;
 
-    playSong(playlist[prevIndex], playlist);
+    playSong(queue[prevIndex], queue);
+  };
+
+  // ==========================
+  // Queue Functions
+  // ==========================
+
+  const playFromQueue = (index) => {
+    if (index < 0 || index >= queue.length) return;
+
+    playSong(queue[index], queue);
+  };
+
+  const removeFromQueue = (id) => {
+    setQueue((prev) =>
+      prev.filter((song) => song.id !== id)
+    );
+  };
+
+  const clearQueue = () => {
+    setQueue([]);
   };
 
   // ==========================
@@ -121,8 +150,14 @@ export const PlayerProvider = ({ children }) => {
 
     const seconds = Math.floor(time % 60);
 
-    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+    return `${minutes}:${seconds
+      .toString()
+      .padStart(2, "0")}`;
   };
+
+  // ==========================
+  // Audio Events
+  // ==========================
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -139,30 +174,51 @@ export const PlayerProvider = ({ children }) => {
       nextSong();
     };
 
-    audio.addEventListener("timeupdate", updateTime);
+    audio.addEventListener(
+      "timeupdate",
+      updateTime
+    );
 
-    audio.addEventListener("loadedmetadata", handleLoadedMetadata);
+    audio.addEventListener(
+      "loadedmetadata",
+      handleLoadedMetadata
+    );
 
-    audio.addEventListener("ended", handleSongEnded);
+    audio.addEventListener(
+      "ended",
+      handleSongEnded
+    );
 
     return () => {
-      audio.removeEventListener("timeupdate", updateTime);
+      audio.removeEventListener(
+        "timeupdate",
+        updateTime
+      );
 
       audio.removeEventListener(
         "loadedmetadata",
         handleLoadedMetadata
       );
 
-      audio.removeEventListener("ended", handleSongEnded);
+      audio.removeEventListener(
+        "ended",
+        handleSongEnded
+      );
     };
-  }, [currentIndex, playlist]);
+  }, [currentIndex, queue]);
 
   return (
     <PlayerContext.Provider
       value={{
         currentSong,
+
         playlist,
+        queue,
+
         currentIndex,
+
+        showQueue,
+        setShowQueue,
 
         isPlaying,
 
@@ -175,6 +231,11 @@ export const PlayerProvider = ({ children }) => {
         nextSong,
         previousSong,
 
+        playFromQueue,
+
+        removeFromQueue,
+        clearQueue,
+
         seekSong,
         changeVolume,
 
@@ -186,4 +247,5 @@ export const PlayerProvider = ({ children }) => {
   );
 };
 
-export const usePlayer = () => useContext(PlayerContext);
+export const usePlayer = () =>
+  useContext(PlayerContext);
