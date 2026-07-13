@@ -1,25 +1,31 @@
-import { useSearch } from "../../../context/SearchContext";
-import { searchSong } from "../services/music.api";
-
 import { useEffect, useState } from "react";
-import { getSongs} from "../services/music.api";
+import { usePlayer } from "../../../context/PlayerContext";
+import { getSongs, searchSong } from "../services/music.api";
+import { useSearch } from "../../../context/SearchContext";
 
 const useMusic = (mood = "happy") => {
   const [songs, setSongs] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const { query } = useSearch();
+  const { playSong } = usePlayer();
 
-  const fetchSongs = async () => {
-    try {
-      const data = await getSongs(mood);
-      setSongs(data.songs);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+const fetchSongs = async () => {
+  try {
+    setLoading(true);
+
+    const data = await getSongs(mood);
+
+    setSongs(data.songs);
+
+   
+
+  } catch (error) {
+    console.log(error);
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleSearch = async (query) => {
     try {

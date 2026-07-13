@@ -1,0 +1,168 @@
+.face-expression {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    backdrop-filter: blur(15px);
+
+    background: rgba(0,0,0,.75);
+
+    z-index: 999;
+}
+
+.face-card{
+
+    width:520px;
+
+    background:#111827;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+
+}
+
+.face-card video{
+
+    width:100%;
+
+    border-radius:15px;
+
+    object-fit:cover;
+
+}
+
+.face-status{
+
+    margin-top:25px;
+
+}
+
+.face-status h2{
+
+    color:white;
+
+    font-size:30px;
+
+    margin-top:15px;
+
+}
+
+.face-status p{
+
+    color:#94a3b8;
+
+    margin-top:8px;
+
+}
+
+.detect-btn{
+
+    margin-top:30px;
+
+    width:100%;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    transition:.3s;
+
+}
+
+.detect-btn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+.face-card{
+
+    position: relative;
+
+    overflow: hidden;
+}
+.ai-pulse{
+
+    width:70px;
+    height:70px;
+
+    margin:25px auto;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    animation:pulse 1.8s infinite;
+
+    box-shadow:0 0 40px rgba(37,99,235,.45);
+
+}
+@keyframes pulse{
+
+0%{
+
+transform:scale(.9);
+
+opacity:.8;
+
+}
+
+50%{
+
+transform:scale(1.15);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:scale(.9);
+
+opacity:.8;
+
+}
+
+}
+
+.mood-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 18px;
+  padding: 10px 22px;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+
+  backdrop-filter: blur(12px);
+}
