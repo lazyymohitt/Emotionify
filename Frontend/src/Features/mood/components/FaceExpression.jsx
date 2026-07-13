@@ -26,12 +26,19 @@ export default function FaceExpression({ onClick = () => { } }) {
     }, []);
 
     async function handleClick() {
-        const expression = detect({ landmarkerRef, videoRef, setExpression })
-        if (expression) {
-            console.log(expression)
-            onClick(expression)
-        }
-    }
+  const expression = detect({
+    landmarkerRef,
+    videoRef,
+    setExpression,
+  });
+
+  if (!expression) return;
+
+  if (streamRef.current) {
+    streamRef.current.getTracks().forEach(track => track.stop());
+  }
+  onClick(expression);
+}
 
 
     return (
